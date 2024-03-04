@@ -1,0 +1,27 @@
+---
+title: docker 构建坑
+date: '2024-03-04'
+tags: ['docker', 'flask', 'opencv']
+draft: false
+summary: docker常用构建。
+---
+
+# 构建项目
+
+## python-opencv项目
+```
+FROM python:3.8.18-slim
+WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6
+ENV FLASK_APP=server/app.py
+EXPOSE 5000
+CMD ["flask", "run", "--host=0.0.0.0"]
+```
+> python-opencv 在 apt的这几个包下才能正常使用
