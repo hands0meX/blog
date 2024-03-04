@@ -1,0 +1,23 @@
+---
+title: Linux 备忘
+date: '2024-03-04'
+tags: ['linux']
+draft: false
+summary: 记录一些linux命令。
+---
+
+- 实时日志
+```sh
+tail -F xxx.txt
+```
+
+- 开启脚本进程
+```sh
+nohup python your_script.py >> output.log 2>&1 &
+```
+
+- 结束脚本进程
+```sh
+pid=$(ps aux | grep "nohup your_command" | grep -v grep | awk '{print $2}')
+kill -9 $pid
+```
