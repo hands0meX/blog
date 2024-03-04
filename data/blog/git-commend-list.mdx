@@ -1,0 +1,21 @@
+---
+title: git 备忘
+date: '2024-03-04'
+tags: ['git']
+draft: false
+summary: 记录一些不常用,容易忘的命令。
+---
+
+```sh
+# 清除当前工作区修改
+git checkout .
+
+# 换本地分支名字
+git branch -m [oldname] [newName]
+
+# 设置upStream 分支
+git push -u [remote branch]
+
+# 选取stash中的某个 => 工作区
+git stash pop stash@{n}
+```

@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'hsx 个人博客',
-  author: 'hsx',
-  headerTitle: 'Hsx Blog',
-  description: '想要和得到，中间还有一个做到。',
+  title: 'HSX 个人博客',
+  author: 'HSX',
+  headerTitle: 'HSX Blog',
+  description: '想要和得到，中间还差个做到。',
   language: 'zh',
   theme: 'system', // system, dark or light
   siteUrl: 'https://hsx-blog.vercel.app/',

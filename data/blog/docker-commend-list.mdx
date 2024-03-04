@@ -1,0 +1,20 @@
+---
+title: docker 备忘
+date: '2024-03-04'
+tags: ['docker']
+draft: false
+summary: docker命令。
+---
+
+# docker
+
+## 打镜像
+```sh
+docker build -t image_name:tag path_to_dockerfile
+```
+
+## 运行容器
+```sh
+docker run -d -p --rm host_port:container_port image_name:tag
+```
+> --rm 是在docker stop container_id时自动删除
