@@ -35,8 +35,18 @@ jobs:
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
           source: .next
           target: ${{ secrets.SERVER_STATIC_DIR }}
-
+      - name: Restart server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ${{ secrets.SERVER_STATIC_DIR }}/..
+            pm2 restart blog_app
 ```
+
+> scp action 将github上打包的.next文件夹上传到目标服务器后， ssh action 设置 pm2重启应用新的.next.
