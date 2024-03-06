@@ -26,4 +26,4 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: .next
-          target: /home/hsx/dawn/blog
+          target: ${{ secrets.SERVER_STATIC_DIR }}
