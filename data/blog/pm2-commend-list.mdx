@@ -1,0 +1,19 @@
+---
+title: PM2 备忘
+date: '2024-03-06'
+tags: ['CI', 'nodejs', 'server']
+draft: false
+summary: 记录些pm2不常用的命令。
+---
+# pm2 使用
+## 根据npm内命令开启后台服务
+```sh
+pm2 start -x npm --name "your_app_name" -- start
+```
+> -x npm 中的npm是执行器,也能是yarn  
+-- start 中的 start是package.json中的script字段中的命令
+
+## 监控
+```sh
+pm2 monit your_app_name
+```
