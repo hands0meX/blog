@@ -2,8 +2,8 @@
 const siteMetadata = {
   title: 'HSX 个人博客',
   author: 'HSX',
-  headerTitle: 'HSX Blog',
-  description: '想要和得到，中间还差个做到。',
+  headerTitle: '',
+  description: '✨ HSX 的个人博客 ✨',
   language: 'zh',
   theme: 'system', // system, dark or light
   siteUrl: 'https://hsx-blog.vercel.app/',
@@ -19,7 +19,7 @@ const siteMetadata = {
   // linkedin: 'https://www.linkedin.com',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
-  locale: 'en-US',
+  locale: 'zh',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -45,7 +45,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    // provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the
@@ -74,13 +74,13 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      lang: 'zh-CN',
     },
   },
   search: {
     provider: 'kbar', // kbar or algolia
     kbarConfig: {
-      searchDocumentsPath: 'search.json', // path to load documents to search
+      searchDocumentsPath: 'blog/search.json', // path to load documents to search
     },
     // provider: 'algolia',
     // algoliaConfig: {
