@@ -1,0 +1,14 @@
+---
+title: 三维重建 - colmap
+date: '2024-03-10'
+tags: ['cv']
+draft: false
+summary: colmap / pycolmap 使用备忘。
+---
+
+# 文档地址
+[点我查看](https://colmap.github.io/tutorial.html)
+
+## colmap 踩坑
+- pycolmap 暂时在稠密重建时候不能使用cuda， 要从源码构建， 源码windows要微软的vcpkg构建，这个构建要visual studio 的c++ cmake模块, 最后还是构建失败😵。 
+
