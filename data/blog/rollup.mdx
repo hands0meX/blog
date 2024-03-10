@@ -1,0 +1,44 @@
+---
+title: rollup打包日常
+date: '2024-03-11'
+tags: ['rollup', 'ci']
+draft: false
+summary: rollup打包日常
+---
+
+- rollup打包默认是esmodule打包， 打包时候可以单独设置(当你的package.json的type是commonjs的时候)
+```js
+  plugins: [
+    resolve(),
+    ts({
+      module: "esnext",
+    }),
+    terser()
+  ]
+```
+- commonjs包作为npm包在打包的时候
+```sh
+rollup -c --bundleConfigAsCjs
+```
+- umd比esm还先出现，所以umd不支持import/export的写法, 所以最好打两个文件，而且在npm包中一个“main”，一个“module”字段输出两个打包文件给别人用。
+```json
+	"main": "lib/index.umd.js",
+	"module": "lib/index.esm.js",
+```
+
+```js
+  output: [
+    {
+      name: 'hutils',
+      file: 'lib/index.umd.js',
+      format: "umd",
+      // banner:
+      //   `/*\n@package: ${packageJson.name}\n@author: ${packageJson.author}\n@update:${new Date().toISOString()}*/`,
+      // sourcemap: true
+    },
+    {
+      file: 'lib/index.esm.js',
+      format: 'esm', // ES module
+    }
+  ],
+```
