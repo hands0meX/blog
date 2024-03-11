@@ -1,0 +1,16 @@
+---
+title: npm 包工程构建备忘
+date: '2024-03-12'
+tags: ['npm']
+draft: false
+summary: 记录一些npm工程的字段，文件的含义
+---
+
+## 字段释义
+- files  
+在npm包发布的时候剔除的优先级:  
+***package.json中files字段 > .npmignore > .gitignore***
+- main  
+设置commonjs的导出的文件路径.umd.js, 
+- module  
+设置esm导出的字段.esm.js
