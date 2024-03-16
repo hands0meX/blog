@@ -7,7 +7,7 @@ summary: 记录一些不常用,容易忘的命令。
 ---
 
 
-next 部署 - scp 上传步骤
+## next部署 - scp 上传服务器
 ```sh
 name: Build and Deploy
 
@@ -50,3 +50,43 @@ jobs:
 ```
 
 > scp action 将github上打包的.next文件夹上传到目标服务器后， ssh action 设置 pm2重启应用新的.next.
+
+## npm打tag上传 (git push --tag)
+```yml
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+    
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build
+      run: pnpm build
+
+    - name: Publish
+      run: pnpm upload
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+```
+> npm平台有双因子认证就得设置成“auth-only”  
+
+>setup-node 是设置npm平台，设置node环境操作
